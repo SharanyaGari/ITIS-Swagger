@@ -12,7 +12,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Database connection pool
+
 const pool = mariadb.createPool({
   host: 'localhost',
   user: 'root',
@@ -22,7 +22,7 @@ const pool = mariadb.createPool({
   connectionLimit: 5
 });
 
-// Helper function to query DB
+
 async function queryDB(sql) {
   let conn;
   try {
@@ -260,12 +260,12 @@ app.get('/foods', async (req, res) => {
   }
 });
 
-// Root route
+
 app.get('/', (req, res) => {
   res.send('Hello from Express + MariaDB API');
 });
 
-// Start server
+
 app.listen(port, () => {
   console.log(`Example app listening at http://remoteserver:${port}`);
 });
